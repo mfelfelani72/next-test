@@ -1,0 +1,4 @@
+{
+  "login": { "title": "ورود", "button": "ثبت نام" },
+  "register": { "title": "ثبت نام", "button": "ورود" }
+}
