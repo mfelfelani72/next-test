@@ -1,7 +1,7 @@
 // example: src/app/[lang]/(auth)/register/page.tsx
 import { getDictionary } from "@/dictionaries";
 import RegisterPageClient from "../../../components/UiRegister";
-import { Suspense } from "react";
+import LangSwitcher from "@/app/components/LangSwitcher";
 
 interface Props {
   params: { lang?: string } | Promise<{ lang?: string }>;
@@ -16,8 +16,9 @@ export default async function RegisterPage({ params }: Props) {
   const dict = await getDictionary(lang);
 
   return (
-    <Suspense fallback={<p>Loading...</p>}>
-      <RegisterPageClient dict={await dict} lang={lang} />
-    </Suspense>
+    <>
+      <LangSwitcher currentLang={lang} />
+      <RegisterPageClient dict={await dict} lang={lang} />;
+    </>
   );
 }
